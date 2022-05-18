@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RecShapeOptions } from 'src/app/core/models/rec-shape-options.model';
 
 @Component({
   selector: 'app-rectangle',
@@ -6,16 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rectangle.component.css'],
 })
 export class RectangleComponent implements OnInit {
-  public shape = {
-    name: 'sampleName',
-    originX: 100,
-    originY: 100,
-    width: 100,
-    height: 100,
-    strokeColor: 'black',
-    fillColor: 'rgb(231, 231, 231',
-    strokeWidth: 1,
-  };
+
+ @Input() shapeOptions: RecShapeOptions;
+ @Output() shapeOptionsChange = new EventEmitter<RecShapeOptions>();
+
   constructor() {}
 
   ngOnInit() {}

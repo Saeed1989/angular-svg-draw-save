@@ -1,16 +1,16 @@
 <svg >
   <svg:rect
-    attr.id="{{ shape.name }}"
+    attr.id="{{ shapeOptions?.name }}"
     class="draggable"
-    attr.x="{{ shape.originX }}"
-    attr.y="{{ shape.originY }}"
-    attr.width="{{ shape.width }}"
-    attr.height="{{ shape.height }}"
-    attr.stroke="{{ shape.strokeColor }}"
-    attr.fill="{{ shape.fillColor }}"
-    attr.stroke-width="{{ shape.strokeWidth }}"
+    attr.x="{{ shapeOptions?.originX }}"
+    attr.y="{{ shapeOptions?.originY }}"
+    attr.width="{{ shapeOptions?.width }}"
+    attr.height="{{ shapeOptions?.height }}"
+    attr.stroke="{{ shapeOptions?.strokeColor }}"
+    attr.fill="{{ shapeOptions?.fillColor }}"
+    attr.stroke-width="{{ shapeOptions?.strokeWidth }}"
   >
-    <title>{{ shape.name }}</title>
+    <title>{{ shapeOptions?.name }}</title>
   </svg:rect>
 
 </svg>
