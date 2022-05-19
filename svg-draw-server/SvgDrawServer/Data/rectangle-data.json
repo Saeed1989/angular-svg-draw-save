@@ -1,0 +1,11 @@
+{
+  "id": 102,
+  "name": "sampleName",
+  "originX": 100,
+  "originY": 100,
+  "width": 100,
+  "height": 100,
+  "strokeColor": "black",
+  "fillColor": "rgb(231, 231, 231)",
+  "strokeWidth": 100
+}
