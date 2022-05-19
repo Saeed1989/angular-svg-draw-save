@@ -4,6 +4,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { RecShapeOptions } from '../core/models/rec-shape-options.model';
+import { RectangleService } from './services/rectangle.service';
 
 
 @Component({
@@ -12,24 +13,24 @@ import { RecShapeOptions } from '../core/models/rec-shape-options.model';
 export class HomeComponent implements OnInit, AfterViewInit {
   title = 'SVG Drawing Demo';
 
-  public recShapeOptions: RecShapeOptions = {
-    name: 'sampleName',
-    originX: 100,
-    originY: 100,
-    width: 100,
-    height: 100,
-    strokeColor: 'black',
-    fillColor: 'rgb(231, 231, 231',
-    strokeWidth: 1,
-  };
+  public recShapeOptions: RecShapeOptions;
 
-  constructor() {}
+  constructor(private reactangleService: RectangleService) {}
 
   ngOnInit(): void {}
 
   ngOnChanges() {}
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    this.reactangleService.getRecOptions().subscribe(res => {
+      console.log(res);
+      this.recShapeOptions = res;
+    })
+  }
 
-  saveShape(): void {}
+  saveShape(): void {
+    this.reactangleService.updateRecOptions(this.recShapeOptions).subscribe(res => {
+      console.log(res);
+    }); 
+  }
 }
