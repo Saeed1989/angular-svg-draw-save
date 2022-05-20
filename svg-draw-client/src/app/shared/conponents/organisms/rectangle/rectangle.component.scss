@@ -1,0 +1,10 @@
+.resizable {
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.draggable:hover + .resizable {
+  opacity: 1;
+}
