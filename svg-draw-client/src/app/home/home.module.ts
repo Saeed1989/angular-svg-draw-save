@@ -10,6 +10,6 @@ const homeRoutes: Routes = [{ path: '', component: HomeComponent }];
 @NgModule({
   imports: [SharedModule, RouterModule.forChild(homeRoutes)],
   declarations: [HomeComponent],
-  providers: [RectangleService]
+  providers: [RectangleService],
 })
 export class HomeModule {}

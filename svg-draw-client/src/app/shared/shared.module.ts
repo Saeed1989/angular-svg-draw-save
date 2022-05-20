@@ -13,7 +13,7 @@ import { RectangleComponent } from './conponents/organisms/rectangle/rectangle.c
     FormsModule,
     ReactiveFormsModule,
     LoadingOverlayComponent,
-    RectangleComponent
+    RectangleComponent,
   ],
 })
 export class SharedModule {}

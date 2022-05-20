@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   saveShape(): void {
-    this.errorMessage = "";
+    this.errorMessage = '';
     this.reactangleService.updateRecOptions(this.recShapeOptions).subscribe(
       (res) => {
         this.shapeChanged = false;
