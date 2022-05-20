@@ -52,6 +52,9 @@ export class RectangleComponent implements OnInit {
     } else if (this.isResizing) {
       this.resizeToMousePosition(event);
     }
+    if(this.isDragging || this.isResizing) {
+      this.shapeOptionsChange.emit(this.shapeOptions);
+    }
     this.isDrawing = false;
     this.isDragging = false;
     this.isResizing = false;
