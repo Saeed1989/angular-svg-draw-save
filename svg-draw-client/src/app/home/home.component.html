@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <app-rectangle [(shapeOptions)]="recShapeOptions"></app-rectangle>
+      <app-rectangle *ngIf="recShapeOptions" [(shapeOptions)]="recShapeOptions"></app-rectangle>
     </div>
   </div>
 </div>

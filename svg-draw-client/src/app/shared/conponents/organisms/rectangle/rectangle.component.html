@@ -1,4 +1,8 @@
-<svg >
+<svg
+  (mousedown)="onMouseDown($event)"
+  (mouseup)="onMouseUp($event)"
+  (mousemove)="onMouseMove($event)"
+>
   <svg:rect
     attr.id="{{ shapeOptions?.name }}"
     class="draggable"
@@ -13,4 +17,17 @@
     <title>{{ shapeOptions?.name }}</title>
   </svg:rect>
 
+  <svg:rect
+    class="resizable"
+    attr.id="{{ shapeOptions?.name }}"
+    attr.x="{{ (shapeOptions?.originX || 0) + (shapeOptions?.width || 0) }}"
+    attr.y="{{ (shapeOptions?.originY || 0) + (shapeOptions?.height || 0) }}"
+    width="10"
+    height="10"
+    stroke="black"
+    fill="black"
+    attr.stroke-width="{{ shapeOptions?.strokeWidth }}"
+  >
+    <title>{{ shapeOptions?.name }}</title>
+  </svg:rect>
 </svg>
