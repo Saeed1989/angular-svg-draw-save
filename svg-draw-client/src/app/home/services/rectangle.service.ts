@@ -3,14 +3,15 @@ import { EMPTY, Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map, finalize } from 'rxjs/operators';
 import { RecShapeOptions } from 'src/app/core/models/rec-shape-options.model';
 import { AppFetchErrorHandlerService } from 'src/app/core/services/fetch-error-handler.service';
+import { LoadingControllerService } from 'src/app/core/services/loading-controller.service';
 import { ShapeNetworkService } from 'src/app/core/services/network/shape-network.service';
-
 
 @Injectable()
 export class RectangleService {
   constructor(
     private appFetchErrorHandlerService: AppFetchErrorHandlerService,
     private networkService: ShapeNetworkService,
+    private loadingControllerService: LoadingControllerService
   ) {}
 
   getRecOptions(): Observable<RecShapeOptions> {
@@ -43,8 +44,9 @@ export class RectangleService {
   }
 
   private addLaoding(inpObser$: Observable<any>): Observable<any> {
+    this.loadingControllerService.setLoading(true);
     return inpObser$.pipe(
-      finalize(() => console.log('finalised'))
-    );;
+      finalize(() => this.loadingControllerService.setLoading(false))
+    );
   }
 }

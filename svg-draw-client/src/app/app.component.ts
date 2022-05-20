@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingControllerService } from './core/services/loading-controller.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'svg-draw-client';
   isLoading = false;
+
+  constructor(loadingControllerService: LoadingControllerService) {
+    loadingControllerService.loadingStatus.subscribe((loadingStatus) => {
+      this.isLoading = loadingStatus;
+    });
+  }
 }
