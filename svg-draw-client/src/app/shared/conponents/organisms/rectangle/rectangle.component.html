@@ -3,6 +3,13 @@
   (mouseup)="onMouseUp($event)"
   (mousemove)="onMouseMove($event)"
 >
+  <text
+    attr.x="{{ shapeOptions?.originX }}"
+    attr.y="{{ (shapeOptions?.originY || 10) - 10 }}"
+  >
+    Perimeter: {{ permimeter }}
+  </text>
+
   <svg:rect
     attr.id="{{ shapeOptions?.name }}"
     class="draggable"

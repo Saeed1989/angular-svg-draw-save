@@ -10,16 +10,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   recShapeOptions: RecShapeOptions;
   shapeChanged = false;
+  errorMessage = '';
 
   constructor(private reactangleService: RectangleService) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.reactangleService.getRecOptions().subscribe((res) => {
-      console.log(res);
-      this.recShapeOptions = res;
-    });
+    this.reactangleService.getRecOptions().subscribe(
+      (res) => {
+        this.recShapeOptions = res;
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
   }
 
   resShapeOptionsChange(ev: RecShapeOptions) {
@@ -28,11 +33,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   saveShape(): void {
-    this.shapeChanged = false;
-    this.reactangleService
-      .updateRecOptions(this.recShapeOptions)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.errorMessage = "";
+    this.reactangleService.updateRecOptions(this.recShapeOptions).subscribe(
+      (res) => {
+        this.shapeChanged = false;
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
   }
 }

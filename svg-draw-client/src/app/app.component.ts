@@ -12,7 +12,9 @@ export class AppComponent {
 
   constructor(loadingControllerService: LoadingControllerService) {
     loadingControllerService.loadingStatus.subscribe((loadingStatus) => {
-      this.isLoading = loadingStatus;
+      setTimeout(() => {
+        this.isLoading = loadingStatus;
+      });
     });
   }
 }

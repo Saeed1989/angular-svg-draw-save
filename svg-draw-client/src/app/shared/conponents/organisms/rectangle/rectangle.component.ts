@@ -21,12 +21,12 @@ export class RectangleComponent implements OnInit {
   draggingStartX = 0;
   draggingStartY = 0;
 
-  svg: any;
+  permimeter = 0;
 
   constructor() {}
 
   ngOnInit() {
-    this.svg = document.querySelector('svg');
+    this.updatePerimeter();
   }
 
   onMouseDown(event: any): void {
@@ -52,7 +52,7 @@ export class RectangleComponent implements OnInit {
     } else if (this.isResizing) {
       this.resizeToMousePosition(event);
     }
-    if(this.isDragging || this.isResizing) {
+    if (this.isDragging || this.isResizing) {
       this.shapeOptionsChange.emit(this.shapeOptions);
     }
     this.isDrawing = false;
@@ -64,14 +64,12 @@ export class RectangleComponent implements OnInit {
     this.isDragging = true;
     this.draggingStartX = event.clientX;
     this.draggingStartY = event.clientY;
-    console.log('startDragging()');
   }
 
   startResizing(event: any): void {
     this.isResizing = true;
     this.resizeStartX = event.clientX;
     this.resizeStartY = event.clientY;
-    console.log('startResizing()');
   }
 
   dragToMousePosition(event: MouseEvent) {
@@ -90,7 +88,17 @@ export class RectangleComponent implements OnInit {
     this.resizeStartY = event.clientY;
     this.shapeOptions.width += dragX;
     this.shapeOptions.height += dragY;
+    if (this.shapeOptions.width < 10) {
+      this.shapeOptions.width = 10;
+    }
+    if (this.shapeOptions.height < 10) {
+      this.shapeOptions.height = 10;
+    }
+    this.updatePerimeter();
   }
 
-  getSvg() {}
+  updatePerimeter() {
+    this.permimeter =
+      this.shapeOptions.width * 2 + this.shapeOptions.height * 2;
+  }
 }
