@@ -2,7 +2,7 @@
 
 This is a demo project for drawing an SVG figure in a web app and saving it in the cloud.
 As a demo, a rectangle shape can be drawn and saved.<br/><br/>
-![](appFlow.PNG)
+![](appFlow.gif)
 
 ## Technology stack
 
