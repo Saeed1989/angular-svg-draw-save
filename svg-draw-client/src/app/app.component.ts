@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+/**
+ * App root component
+ *
+ * Copyright Md Saeed Sharman.
+ * Licensed under the MIT License
+ */
+import { AfterViewInit, Component } from '@angular/core';
 import { LoadingControllerService } from './core/services/loading-controller.service';
 
 @Component({
@@ -6,12 +12,14 @@ import { LoadingControllerService } from './core/services/loading-controller.ser
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'svg-draw-client';
   isLoading = false;
 
-  constructor(loadingControllerService: LoadingControllerService) {
-    loadingControllerService.loadingStatus.subscribe((loadingStatus) => {
+  constructor(private loadingControllerService: LoadingControllerService) {}
+
+  ngAfterViewInit(): void {
+    this.loadingControllerService.loadingStatus$.subscribe((loadingStatus) => {
       setTimeout(() => {
         this.isLoading = loadingStatus;
       });

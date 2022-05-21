@@ -1,6 +1,8 @@
 /**
- * Loading overlay component
+ * Loading inicator overlay component
  *
+ * Copyright Md Saeed Sharman.
+ * Licensed under the MIT License
  */
 
 import {

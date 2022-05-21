@@ -1,3 +1,10 @@
+/**
+ * Home page component
+ *
+ * Copyright Md Saeed Sharman.
+ * Licensed under the MIT License
+ */
+
 import { Component, OnInit, AfterViewInit, SimpleChanges } from '@angular/core';
 import { RecShapeOptions } from '../core/models/rec-shape-options.model';
 import { RectangleService } from './services/rectangle.service';
@@ -6,10 +13,14 @@ import { RectangleService } from './services/rectangle.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  /** Title of the page */
   title = 'SVG Drawing Demo';
 
+  /** Rectangle shape parameters */
   recShapeOptions: RecShapeOptions;
+  /** Flag for shape change */
   shapeChanged = false;
+  /** API error message */
   errorMessage = '';
 
   constructor(private reactangleService: RectangleService) {}
@@ -27,11 +38,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
     );
   }
 
-  resShapeOptionsChange(ev: RecShapeOptions) {
-    this.recShapeOptions = ev;
+  /**
+   * Shape parameter change event
+   * @param rShapeopt shape parameters
+   */
+  resShapeOptionsChange(rShapeopt: RecShapeOptions) {
+    this.recShapeOptions = rShapeopt;
     this.shapeChanged = true;
   }
 
+  /**
+   * Save shape parameters
+   */
   saveShape(): void {
     this.errorMessage = '';
     this.reactangleService.updateRecOptions(this.recShapeOptions).subscribe(

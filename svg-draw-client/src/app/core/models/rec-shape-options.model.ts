@@ -1,3 +1,4 @@
+/** Interface for rectangle shape parameters */
 export interface RecShapeOptions {
   name: string;
   originX: number;

@@ -1,3 +1,10 @@
+/**
+ * App shell component
+ *
+ * Copyright Md Saeed Sharman.
+ * Licensed under the MIT License
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

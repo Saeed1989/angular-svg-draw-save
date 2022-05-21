@@ -1,3 +1,10 @@
+/**
+ * Http call interceptor to set root URL
+ *
+ * Copyright Md Saeed Sharman.
+ * Licensed under the MIT License
+ */
+
 import { Injectable } from '@angular/core';
 import {
   HttpEvent,
