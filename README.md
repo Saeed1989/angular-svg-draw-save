@@ -63,6 +63,9 @@ npm i
 npm start
 ```
 
+#### Alpha Testing
+Open the link http://localhost:4200/ in any browser and use the app as described in the "User Guide" below.
+
 ### Backend
 
 #### Prerequisites
@@ -76,11 +79,16 @@ npm start
 - Run the project.
 - Start the API server with SSL certificate. (Certificate is provided by the IDE while running in localhost)
 
+#### Alpha Testing
+Perform GET and POST operation using the end point https://localhost:7331/api/rectangle in Postman.<br/>
+After successful GET operation the parameters of the rectangle will be available in the response in JSON format.<br/>
+After successful POST operation the provided parameters will be saved in the JSON file.
+
 ## Data Source
-The dimensions of the figure are saved in JSON file format. The initial parameters are added to the file. After resizing and saving the updated parameter will be saved in the same file.
-The file is saved in the API server.
-Location: svg-draw-server/SvgDrawServer/Data/rectangle-data.json
-<br/>
+The dimensions of the figure are saved in a JSON file. The initial parameters are added to the file. After resizing and saving the updated parameters will be saved in the same file.<br/>
+The file is saved in the API server.<br/>
+Location: svg-draw-server/SvgDrawServer/Data/rectangle-data.json<br/>
+
 Sample content:
 ```sh
 {
